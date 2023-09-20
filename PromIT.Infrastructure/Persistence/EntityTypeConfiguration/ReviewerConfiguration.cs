@@ -1,12 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Microsoft.EntityFrameworkCore;
+using PromIT.Domain.Reviewer;
 
-namespace PromIT.Infrastructure.Persistence.EntityTypeConfiguration
+namespace PromIT.Infrastructure.Persistence.EntityTypeConfiguration;
+
+public class ReviewerConfiguration : IEntityTypeConfiguration<ReviewerEntity>
 {
-	internal class ReviewersConfiguration
+	public void Configure(EntityTypeBuilder<ReviewerEntity> builder)
 	{
+		builder.ToTable("Reviewers");
+
+		builder.HasKey(reviewer => reviewer.Id);
+		builder.Property(reviewer => reviewer.Nickname);
 	}
 }

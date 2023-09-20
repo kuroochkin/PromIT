@@ -12,7 +12,7 @@ using PromIT.Infrastructure.Persistence;
 namespace PromIT.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230920205741_first")]
+    [Migration("20230920210836_first")]
     partial class first
     {
         /// <inheritdoc />
@@ -37,7 +37,7 @@ namespace PromIT.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Administrators");
+                    b.ToTable("Administrators", (string)null);
                 });
 
             modelBuilder.Entity("PromIT.Domain.Review.ReviewEntity", b =>
@@ -73,7 +73,7 @@ namespace PromIT.Infrastructure.Migrations
 
                     b.HasIndex("ReviewerId");
 
-                    b.ToTable("Reviews");
+                    b.ToTable("Reviews", (string)null);
                 });
 
             modelBuilder.Entity("PromIT.Domain.Reviewer.ReviewerEntity", b =>
@@ -88,7 +88,7 @@ namespace PromIT.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Reviewers");
+                    b.ToTable("Reviewers", (string)null);
                 });
 
             modelBuilder.Entity("PromIT.Domain.User.UserEntity", b =>
@@ -105,9 +105,12 @@ namespace PromIT.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("Type")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
-                    b.ToTable("Users");
+                    b.ToTable("Users", (string)null);
                 });
 
             modelBuilder.Entity("PromIT.Domain.Review.ReviewEntity", b =>

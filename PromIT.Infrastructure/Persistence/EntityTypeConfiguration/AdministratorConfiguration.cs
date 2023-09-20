@@ -1,12 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Microsoft.EntityFrameworkCore;
+using PromIT.Domain.Administrator;
 
-namespace PromIT.Infrastructure.Persistence.EntityTypeConfiguration
+namespace PromIT.Infrastructure.Persistence.EntityTypeConfiguration;
+
+public class AdministratorConfiguration : IEntityTypeConfiguration<AdministratorEntity>
 {
-	internal class AdministratorConfiguration
+	public void Configure(EntityTypeBuilder<AdministratorEntity> builder)
 	{
+		builder.ToTable("Administrators");
+
+		builder.HasKey(administrator => administrator.Id);
+		builder.Property(administrator => administrator.Nickname);
 	}
 }
