@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PromIT.API</name>
+    </assembly>
+    <members>
+        <member name="M:PromIT.API.Controllers.AuthController.Register(PromIT.Contracts.Auth.RegisterRequest)">
+            <summary>
+            Регистрация пользователя
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PromIT.API.Controllers.AuthController.Login(PromIT.Contracts.Auth.LoginRequest)">
+            <summary>
+            Авторизация пользователя
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

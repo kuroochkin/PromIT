@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+﻿using MapsterMapper;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -22,6 +22,11 @@ public class AuthController : Controller
 		_mapper = mapper;
 	}
 
+	/// <summary>
+	/// Регистрация пользователя
+	/// </summary>
+	/// <param name="request"></param>
+	/// <returns></returns>
 	[HttpPost("register")]
 	public async Task<IActionResult> Register(RegisterRequest request)
 	{
@@ -35,6 +40,11 @@ public class AuthController : Controller
 			);
 	}
 
+	/// <summary>
+	/// Авторизация пользователя
+	/// </summary>
+	/// <param name="request"></param>
+	/// <returns></returns>
 	[HttpPost("login")]
 	public async Task<IActionResult> Login(LoginRequest request)
 	{

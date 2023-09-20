@@ -34,6 +34,7 @@ public static class DependencyInjection
 					new string[] {}
 				}
 			});
+			option.IncludeXmlComments("PromIT.API.xml");
 		});
 
 		services.AddMappings();
