@@ -12,7 +12,7 @@ using PromIT.Infrastructure.Persistence;
 namespace PromIT.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230920164940_first")]
+    [Migration("20230920205741_first")]
     partial class first
     {
         /// <inheritdoc />
