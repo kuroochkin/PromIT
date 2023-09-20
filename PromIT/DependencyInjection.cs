@@ -1,4 +1,5 @@
 ﻿using Microsoft.OpenApi.Models;
+using PromIT.API.Common.Mapping;
 
 namespace PromIT.API;
 
@@ -35,7 +36,8 @@ public static class DependencyInjection
 			});
 		});
 
-		//services.AddMappings();
+		services.AddMappings();
+
 		return services;
 	}
 }
