@@ -1,4 +1,5 @@
-﻿using FluentValidation;
+﻿using ErrorOr;
+using FluentValidation;
 using MediatR;
 
 namespace PromIT.App.Common.Behavior;

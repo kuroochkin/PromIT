@@ -1,12 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using PromIT.Domain.Review;
 
-namespace PromIT.Domain.Reviewer
+namespace PromIT.Domain.Reviewer;
+
+public class ReviewerEntity
 {
-	internal class ReviewerEntity
+	public Guid Id { get; set; }
+
+	public string Nickname { get; set; } = null!;
+
+	List<ReviewEntity> Reviews { get; set; } = new();
+
+	public ReviewerEntity()
 	{
 	}
 }

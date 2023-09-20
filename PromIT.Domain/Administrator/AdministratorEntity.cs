@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace PromIT.Domain.Administrator;
 
-namespace PromIT.Domain.Administrator
+public class AdministratorEntity
 {
-	internal class AdministratorEntity
+	public Guid Id { get; set; }
+
+	public string Nickname { get; set; } = null!;
+
+	public AdministratorEntity()
 	{
 	}
 }
