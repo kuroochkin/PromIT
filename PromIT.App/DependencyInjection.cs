@@ -1,8 +1,8 @@
-﻿using MediatR;
-using FluentValidation;
+﻿using PromIT.App.Common.Behavior;
+using MediatR;
 using Microsoft.Extensions.DependencyInjection;
-using PromIT.App.Common.Behavior;
 using System.Reflection;
+using FluentValidation;
 
 namespace PromIT.App;
 

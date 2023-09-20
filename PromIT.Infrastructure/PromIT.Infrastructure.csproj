@@ -6,4 +6,13 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.11" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PromIT.App\PromIT.App.csproj" />
+    <ProjectReference Include="..\PromIT.Domain\PromIT.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

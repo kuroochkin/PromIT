@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using PromIT.Domain.User;
 
-namespace PromIT.App.Common.Interfaces.Persistence
+namespace PromIT.App.Common.Interfaces.Persistence;
+
+public interface IUserRepository : IGenericRepository<UserEntity>
 {
-	internal class IUserRepository
-	{
-	}
+
 }
