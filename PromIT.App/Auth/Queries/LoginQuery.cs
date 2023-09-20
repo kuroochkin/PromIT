@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ErrorOr;
+using MediatR;
+using PromIT.App.Auth.Common;
 
-namespace PromIT.App.Auth.Queries
-{
-	internal class LoginQuery
-	{
-	}
-}
+namespace PromIT.App.Auth.Queries;
+
+public record LoginQuery(
+	string Nickname,
+	string Password
+	) : IRequest<ErrorOr<AuthenticationResult>>;

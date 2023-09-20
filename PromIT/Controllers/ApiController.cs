@@ -1,6 +1,15 @@
-﻿namespace PromIT.API.Controllers
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
+
+namespace PromIT.API.Controllers;
+
+[ApiController]
+[Authorize]
+public class ApiController : ControllerBase
 {
-	public class ApiController
+	protected string? GetUserId()
 	{
+		return User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 	}
 }
