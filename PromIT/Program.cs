@@ -8,6 +8,17 @@ var builder = WebApplication.CreateBuilder(args);
 		.AddApplication()
 		.AddInfrastructure(builder.Configuration)
 		.AddPresentation();
+
+	builder.Services
+		.AddCors(options =>
+		{
+			options.AddPolicy("AllowAllHeaders", builder =>
+			{
+				builder.AllowAnyOrigin()
+					   .AllowAnyHeader()
+					   .AllowAnyMethod();
+			});
+		});
 }
 
 var app = builder.Build();
