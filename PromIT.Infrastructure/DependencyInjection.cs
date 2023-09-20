@@ -23,11 +23,6 @@ public static class DependencyInjection
         services.AddScoped<ISectionRepository, SectionRepository>();
         services.AddScoped<IUnitOfWork, UnitOfWork>();
 
-
-        services.AddAuth(configuration);
-
-        services.AddMinio(configuration);
-
         services.AddDbContext<ApplicationDbContext>(options =>
         {
             options.UseSqlServer(configuration.GetConnectionString("SqlServer"));
