@@ -4,6 +4,11 @@
         <name>PromIT.API</name>
     </assembly>
     <members>
+        <member name="T:PromIT.API.Controllers.AuthController">
+            <summary>
+            Контроллер для регистрации и авторизации
+            </summary>
+        </member>
         <member name="M:PromIT.API.Controllers.AuthController.Register(PromIT.Contracts.Auth.RegisterRequest)">
             <summary>
             Регистрация пользователя
@@ -14,6 +19,13 @@
         <member name="M:PromIT.API.Controllers.AuthController.Login(PromIT.Contracts.Auth.LoginRequest)">
             <summary>
             Авторизация пользователя
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PromIT.API.Controllers.ReviewController.CreateOrder(PromIT.Contracts.Review.CreateReviewRequest)">
+            <summary>
+            Добавление отзыва
             </summary>
             <param name="request"></param>
             <returns></returns>

@@ -8,6 +8,9 @@ using PromIT.Contracts.Auth;
 
 namespace PromIT.API.Controllers;
 
+/// <summary>
+/// Контроллер для регистрации и авторизации
+/// </summary>
 [ApiController]
 [Route("api/auth")]
 [AllowAnonymous]
