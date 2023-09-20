@@ -1,12 +1,15 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
 using PromIT.App.Common.Auth;
 using PromIT.App.Common.Interfaces.Persistence;
 using PromIT.Infrastructure.Auth;
 using PromIT.Infrastructure.Persistence;
 using PromIT.Infrastructure.Persistence.Repositories;
+using System.Text;
 
 namespace PromIT.Infrastructure;
 
@@ -20,10 +23,11 @@ public static class DependencyInjection
 		services.AddScoped<IReviewerRepository, ReviewerRepository>();
 		services.AddScoped<IAdministratorRepository, AdministratorRepository>();
 		services.AddScoped<IReviewRepository, ReviewRepository>();
-
 		services.AddScoped<IUnitOfWork, UnitOfWork>();
 
-        services.AddDbContext<ApplicationDbContext>(options =>
+		services.AddAuth(configuration);
+
+		services.AddDbContext<ApplicationDbContext>(options =>
         {
             options.UseSqlServer(configuration.GetConnectionString("SqlServer"));
         });

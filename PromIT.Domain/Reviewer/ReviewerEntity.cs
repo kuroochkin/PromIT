@@ -10,7 +10,9 @@ public class ReviewerEntity
 
 	List<ReviewEntity> Reviews { get; set; } = new();
 
-	public ReviewerEntity()
+	public ReviewerEntity(Guid id, string nickname)
 	{
+		Id = id;
+		Nickname = nickname;
 	}
 }

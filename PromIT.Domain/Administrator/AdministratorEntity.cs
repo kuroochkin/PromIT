@@ -6,7 +6,9 @@ public class AdministratorEntity
 
 	public string Nickname { get; set; } = null!;
 
-	public AdministratorEntity()
+	public AdministratorEntity(Guid id, string nickname)
 	{
+		Id = id;
+		Nickname = nickname;
 	}
 }

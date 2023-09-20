@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Auth\" />
+    <Folder Include="Auth\Queries\" />
   </ItemGroup>
 
 </Project>

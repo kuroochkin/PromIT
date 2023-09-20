@@ -25,11 +25,12 @@ public class UserEntity
 		return "";
 	}
 
-	public UserEntity(string nickname, string password)
+	public UserEntity(string nickname, string password, UserType type)
 	{
 		Id = Guid.NewGuid();
 		Nickname = nickname;
 		Password = password;
+		Type = type;
 	}
 
 	public enum UserType
