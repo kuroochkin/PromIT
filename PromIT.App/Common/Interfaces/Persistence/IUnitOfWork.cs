@@ -6,4 +6,6 @@ public interface IUnitOfWork
 	IReviewerRepository Reviewers { get; }
 	IAdministratorRepository Administrators { get; }
 	IReviewRepository Reviews { get;}
+
+	Task<bool> CompleteAsync();
 }
