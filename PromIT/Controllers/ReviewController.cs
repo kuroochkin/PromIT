@@ -3,6 +3,7 @@ using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PromIT.App.Review.Commands.CreateReview;
+using PromIT.App.Review.Queries.GetReviewDetails;
 using PromIT.Contracts.Review;
 
 namespace PromIT.API.Controllers;
@@ -21,13 +22,31 @@ public class ReviewController : ApiController
 	}
 
 	/// <summary>
+	/// Информация об отзыве
+	/// </summary>
+	/// <param name="reviewId"></param>
+	/// <returns></returns>
+	[HttpGet("{reviewId}")]
+	public async Task<IActionResult> GetDetailsReview(string reviewId)
+	{
+		var query = new GetReviewDetailsQuery(reviewId);
+
+		var orderResult = await _mediator.Send(query);
+
+		return orderResult.Match(
+			order => Ok(_mapper.Map<GetReviewDetailsResponse>(order)),
+			errors => Problem("Ошибка")
+		);
+	}
+
+	/// <summary>
 	/// Добавление отзыва
 	/// </summary>
 	/// <param name="request"></param>
 	/// <returns></returns>
 	[HttpPost("create")]
 	[Authorize(Roles = "Reviewer")]
-	public async Task<IActionResult> CreateOrder(CreateReviewRequest request)
+	public async Task<IActionResult> CreateReview(CreateReviewRequest request)
 	{
 		var review = GetUserId();
 

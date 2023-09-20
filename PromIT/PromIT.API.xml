@@ -23,7 +23,14 @@
             <param name="request"></param>
             <returns></returns>
         </member>
-        <member name="M:PromIT.API.Controllers.ReviewController.CreateOrder(PromIT.Contracts.Review.CreateReviewRequest)">
+        <member name="M:PromIT.API.Controllers.ReviewController.GetDetailsReview(System.String)">
+            <summary>
+            Информация об отзыве
+            </summary>
+            <param name="reviewId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PromIT.API.Controllers.ReviewController.CreateReview(PromIT.Contracts.Review.CreateReviewRequest)">
             <summary>
             Добавление отзыва
             </summary>
