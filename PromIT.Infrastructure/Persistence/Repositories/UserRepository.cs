@@ -1,12 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using PromIT.App.Common.Interfaces.Persistence;
+using PromIT.Domain.Review;
+using PromIT.Domain.User;
 
-namespace PromIT.Infrastructure.Persistence.Repositories
+namespace PromIT.Infrastructure.Persistence.Repositories;
+
+
+public class UserRepository : GenericRepository<UserEntity>, IUserRepository
 {
-	internal class UserRepository
+	public UserRepository(ApplicationDbContext context) : base(context)
 	{
+
 	}
 }
+
+

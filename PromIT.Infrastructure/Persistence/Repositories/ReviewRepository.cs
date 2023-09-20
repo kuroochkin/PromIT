@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using PromIT.App.Common.Interfaces.Persistence;
+using PromIT.Domain.Review;
 
-namespace PromIT.Infrastructure.Persistence.Repositories
+namespace PromIT.Infrastructure.Persistence.Repositories;
+
+public class ReviewRepository : GenericRepository<ReviewEntity>, IReviewRepository
 {
-	internal class ReviewRepository
+	public ReviewRepository(ApplicationDbContext context) : base(context)
 	{
 	}
 }
