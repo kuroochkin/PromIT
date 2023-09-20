@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace PromIT.App.Common.Interfaces.Persistence;
 
-namespace PromIT.App.Common.Interfaces.Persistence
+public interface IUnitOfWork
 {
-	internal class IUnitOfWork
-	{
-	}
+	IUserRepository Users { get; }
+	IReviewerRepository Reviewers { get; }
+	IAdministratorRepository Administrators { get; }
+	IReviewRepository Reviews { get;}
 }
