@@ -31,7 +31,8 @@ if (app.Environment.IsDevelopment())
 
 app.UseCors("AllowAllHeaders");
 
-//app.UseAuthorization();
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.MapControllers();
 
