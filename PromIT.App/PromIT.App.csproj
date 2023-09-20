@@ -18,8 +18,4 @@
     <ProjectReference Include="..\PromIT.Domain\PromIT.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Auth\Queries\" />
-  </ItemGroup>
-
 </Project>
