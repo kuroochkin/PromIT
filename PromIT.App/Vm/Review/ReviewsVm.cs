@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace PromIT.App.Vm.Review;
 
-namespace PromIT.App.Vm.Review
-{
-	internal class ReviewsVm
-	{
-	}
-}
+public record ReviewsVm(List<ReviewDetailsVm> Reviews);
+

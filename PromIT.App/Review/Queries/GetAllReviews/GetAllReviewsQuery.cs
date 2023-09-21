@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ErrorOr;
+using MediatR;
+using PromIT.App.Vm.Review;
 
-namespace PromIT.App.Review.Queries.GetAllReviews
-{
-	internal class GetAllReviewsQuery
-	{
-	}
-}
+namespace PromIT.App.Review.Queries.GetAllReviews;
+
+public record GetAllReviewsQuery : IRequest<ErrorOr<ReviewsVm>>;
+
