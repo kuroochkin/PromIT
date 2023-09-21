@@ -25,6 +25,7 @@ public class LoginQueryHandler
 		LoginQuery request, 
 		CancellationToken cancellationToken)
 	{
+		// Находим пользователя и проверяем валидность введенных данных
 		var user = await _unitOfWork.Users.FindUserByNickname(request.Nickname);
 		if (user is not null)
 		{

@@ -62,6 +62,11 @@ public class ReviewController : ApiController
 			);
 	}
 
+	/// <summary>
+	/// Удаление отзыва
+	/// </summary>
+	/// <param name="request"></param>
+	/// <returns></returns>
 	[HttpPost("delete")]
 	[Authorize(Roles = "Administrator")]
 	public async Task<IActionResult> DeleteReview(DeleteReviewRequest request)
@@ -76,6 +81,10 @@ public class ReviewController : ApiController
 			);
 	}
 
+	/// <summary>
+	/// Получение всех отзывов
+	/// </summary>
+	/// <returns></returns>
 	[HttpGet("allReviews")]
 	public async Task<IActionResult> GetAllReviews()
 	{

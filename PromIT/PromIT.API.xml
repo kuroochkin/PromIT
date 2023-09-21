@@ -37,5 +37,18 @@
             <param name="request"></param>
             <returns></returns>
         </member>
+        <member name="M:PromIT.API.Controllers.ReviewController.DeleteReview(PromIT.Contracts.Review.DeleteReviewRequest)">
+            <summary>
+            Удаление отзыва
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PromIT.API.Controllers.ReviewController.GetAllReviews">
+            <summary>
+            Получение всех отзывов
+            </summary>
+            <returns></returns>
+        </member>
     </members>
 </doc>

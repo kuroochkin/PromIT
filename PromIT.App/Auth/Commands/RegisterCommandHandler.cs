@@ -61,8 +61,10 @@ public class RegisterCommandHandler
 			await _unitOfWork.Administrators.Add(administrator);
 		}
 
+		//Сохраняем данные
 		await _unitOfWork.CompleteAsync();
 
+		// Выдаем токен пользователю
 		var token = _jwtTokenGenerator.GenerateToken(user);
 
 		return new AuthenticationResult(token, user.GetUserTypeToString());

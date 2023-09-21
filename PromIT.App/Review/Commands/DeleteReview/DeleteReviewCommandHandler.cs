@@ -19,17 +19,20 @@ public class DeleteReviewCommandHandler
 		DeleteReviewCommand request,
 		CancellationToken cancellationToken)
 	{
+		// Проверяем валидность Id
 		if (!Guid.TryParse(request.ReviewId, out var reviewId))
 		{
 			return Errors.Review.InvalidId;
 		}
 
+		// Находим отзыв в базе данных
 		var review = await _unitOfWork.Reviews.FindReviewWithReviewers(reviewId);
 		if(review is null)
 		{
 			return Errors.Review.NotFound;
 		}
 
+		// Удаляем отзыв из базы и фиксируем изменения
 		if (_unitOfWork.Reviews.Delete(review))
 		{
 			return await _unitOfWork.CompleteAsync();

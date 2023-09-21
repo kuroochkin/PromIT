@@ -22,17 +22,20 @@ class GetReviewDetailsQueryHandler
 		GetReviewDetailsQuery request, 
 		CancellationToken cancellationToken)
 	{
+		// Проверяем валидность Id
 		if (!Guid.TryParse(request.ReviewId, out var reviewId))
 		{
 			return Errors.Review.InvalidId;
 		}
 
+		// Находим отзыв в базе данных
 		var review = await _unitOfWork.Reviews.FindReviewWithReviewers(reviewId);
 		if (review is null)
 		{
 			return Errors.Review.NotFound;
 		}
 
+		// Создаем модель отзыва
 		var reviewInfo = new ReviewDetailsVm(
 			review.Id.ToString(),
 			new ReviewerVm(
@@ -47,6 +50,7 @@ class GetReviewDetailsQueryHandler
 			review.Grade
 			);
 
+		// Возвращаем модель отзыва
 		return reviewInfo;
 	}
 }

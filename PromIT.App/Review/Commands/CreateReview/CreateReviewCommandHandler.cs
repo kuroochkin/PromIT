@@ -21,17 +21,20 @@ public class CreateReviewCommandHandler
 		CreateReviewCommand request, 
 		CancellationToken cancellationToken)
 	{
+		// Проверяем валидность Id
 		if (!Guid.TryParse(request.ReviewerId, out var reviewerId))
 		{
 			return Errors.Reviewer.InvalidId;
 		}
 
+		// Находим резенцента
 		var reviewer = await _unitOfWork.Reviewers.FindById(reviewerId);
 		if (reviewer is null)
 		{
 			return Errors.Reviewer.NotFound;
 		}
 
+		// Создаем и инициализируем объект отзыва
 		var review = new ReviewEntity(
 			reviewer,
 			request.CompanyName,
@@ -43,6 +46,7 @@ public class CreateReviewCommandHandler
 		review.Unliked = request.Unliked;
 		review.Comment = request.Comment;
 
+		// Добавляем в базу данных и сохраняем
 		if (await _unitOfWork.Reviews.Add(review))
 		{
 			return await _unitOfWork.CompleteAsync();

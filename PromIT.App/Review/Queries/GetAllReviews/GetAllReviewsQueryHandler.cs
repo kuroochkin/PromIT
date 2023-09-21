@@ -20,12 +20,14 @@ public class GetAllReviewsQueryHandler
 		GetAllReviewsQuery request, 
 		CancellationToken cancellationToken)
 	{
+		// Получаем список всех отзывов
 		var reviews = await _unitOfWork.Reviews.GetAllReviewsWithReviewers();
 		if(reviews is null)
 		{
 			return Errors.Reviewer.NotFound;
 		}
 
+		// Создаем модель списка всех отзывов
 		var reviewsInfo = reviews.Select(review => new ReviewDetailsVm(
 			review.Id.ToString(),
 			new ReviewerVm(
@@ -41,6 +43,7 @@ public class GetAllReviewsQueryHandler
 			)
 			.ToList();
 
+		// Возвращаем модель всех отзывов
 		return new ReviewsVm(reviewsInfo);
 	}
 }
