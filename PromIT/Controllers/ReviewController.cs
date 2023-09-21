@@ -3,6 +3,7 @@ using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PromIT.App.Review.Commands.CreateReview;
+using PromIT.App.Review.Commands.DeleteReview;
 using PromIT.App.Review.Queries.GetAllReviews;
 using PromIT.App.Review.Queries.GetReviewDetails;
 using PromIT.Contracts.Review;
@@ -49,9 +50,23 @@ public class ReviewController : ApiController
 	[Authorize(Roles = "Reviewer")]
 	public async Task<IActionResult> CreateReview(CreateReviewRequest request)
 	{
-		var review = GetUserId();
+		var reviewer = GetUserId();
 
-		var command = _mapper.Map<CreateReviewCommand>((request, review));
+		var command = _mapper.Map<CreateReviewCommand>((request, reviewer));
+
+		var result = await _mediator.Send(command);
+
+		return result.Match(
+			reviewResult => Ok(result.Value),
+			errors => Problem("Ошибка")
+			);
+	}
+
+	[HttpPost("delete")]
+	[Authorize(Roles = "Administrator")]
+	public async Task<IActionResult> DeleteReview(DeleteReviewRequest request)
+	{
+		var command = _mapper.Map<DeleteReviewCommand>(request);
 
 		var result = await _mediator.Send(command);
 
@@ -62,7 +77,7 @@ public class ReviewController : ApiController
 	}
 
 	[HttpGet("allReviews")]
-	public async Task<IActionResult> GetAllOrdersByCourierId()
+	public async Task<IActionResult> GetAllReviews()
 	{
 		var query = new GetAllReviewsQuery();
 

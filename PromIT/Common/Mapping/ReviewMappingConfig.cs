@@ -1,5 +1,6 @@
 ﻿using Mapster;
 using PromIT.App.Review.Commands.CreateReview;
+using PromIT.App.Review.Commands.DeleteReview;
 using PromIT.App.Vm.Review;
 using PromIT.Contracts.Review;
 
@@ -28,6 +29,8 @@ public class ReviewMappingConfig : IRegister
 			.Map(dest => dest.Unliked, src => src.request.Unliked)
 			.Map(dest => dest.Comment, src => src.request.Comment)
 			.Map(dest => dest.Grade, src => src.request.Grade);
+
+		config.NewConfig<DeleteReviewRequest, DeleteReviewCommand>();
 
 		config.NewConfig<ReviewsVm, GetAllReviewsResponse>()
 			.Map(dest => dest.Reviews, src => src.Reviews);
