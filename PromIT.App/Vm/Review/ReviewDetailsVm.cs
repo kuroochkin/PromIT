@@ -10,6 +10,7 @@ public record ReviewDetailsVm(
     string? Address,
     string Liked,
     string? Unliked,
+    string? Comment,
     int Grade
     );
 

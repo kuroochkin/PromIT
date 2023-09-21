@@ -18,6 +18,8 @@ public class ReviewEntity
 
     public string? Unliked { get; set; }
 
+    public string? Comment { get; set; }
+
     public int Grade { get; set; }
 
     public ReviewEntity()

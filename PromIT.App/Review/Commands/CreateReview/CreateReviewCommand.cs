@@ -9,5 +9,6 @@ public record CreateReviewCommand(
 	 string? Address,
 	 string Liked,
 	 string? Unliked,
+	 string? Comment,
 	 int Grade) : IRequest<ErrorOr<bool>>;
 

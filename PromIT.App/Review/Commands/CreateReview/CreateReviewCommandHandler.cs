@@ -3,9 +3,6 @@ using MediatR;
 using PromIT.App.Common.Errors;
 using PromIT.App.Common.Interfaces.Persistence;
 using PromIT.Domain.Review;
-using static PromIT.App.Common.Errors.Errors;
-using System.Diagnostics;
-using System.Net;
 
 namespace PromIT.App.Review.Commands.CreateReview;
 
@@ -44,6 +41,7 @@ public class CreateReviewCommandHandler
 
 		review.Address = request.Address;
 		review.Unliked = request.Unliked;
+		review.Comment = request.Comment;
 
 		if (await _unitOfWork.Reviews.Add(review))
 		{

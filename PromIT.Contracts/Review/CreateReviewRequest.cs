@@ -6,4 +6,5 @@ public record CreateReviewRequest(
 	 string? Address,
 	 string Liked,
 	 string? Unliked,
+	 string? Comment,
 	 int Grade);

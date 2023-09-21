@@ -34,7 +34,7 @@ public class ReviewController : ApiController
 		var orderResult = await _mediator.Send(query);
 
 		return orderResult.Match(
-			order => Ok(_mapper.Map<GetReviewDetailsResponse>(order)),
+			review => Ok(_mapper.Map<GetReviewDetailsResponse>(review)),
 			errors => Problem("Ошибка")
 		);
 	}

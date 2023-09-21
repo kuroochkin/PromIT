@@ -10,5 +10,6 @@ public record GetReviewDetailsResponse(
 	string? Address,
 	string Liked,
 	string? Unliked,
+	string? Comment,
 	int Grade);
 

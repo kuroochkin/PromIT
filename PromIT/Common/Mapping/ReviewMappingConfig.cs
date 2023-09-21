@@ -17,6 +17,7 @@ public class ReviewMappingConfig : IRegister
 			.Map(dest => dest.Liked, src => src.Liked)
 			.Map(dest => dest.Unliked, src => src.Unliked)
 			.Map(dest => dest.Grade, src => src.Grade)
+			.Map(dest => dest.Comment, src => src.Comment)
 			.Map(dest => dest.Created, src => src.Created);
 
 		config.NewConfig<(CreateReviewRequest request, string reviewerId), CreateReviewCommand>()
@@ -25,6 +26,7 @@ public class ReviewMappingConfig : IRegister
 			.Map(dest => dest.Address, src => src.request.Address)
 			.Map(dest => dest.Liked, src => src.request.Liked)
 			.Map(dest => dest.Unliked, src => src.request.Unliked)
+			.Map(dest => dest.Comment, src => src.request.Comment)
 			.Map(dest => dest.Grade, src => src.request.Grade);
 	}
 }

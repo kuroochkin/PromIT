@@ -17,6 +17,6 @@ public class ReviewConfiguration : IEntityTypeConfiguration<ReviewEntity>
 		builder.Property(review => review.Unliked);
 		builder.Property(review => review.Date);
 		builder.Property(review => review.Grade);
-		builder.Property(review => review.Liked);
+		builder.Property(review => review.Comment);
 	}
 }

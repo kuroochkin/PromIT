@@ -43,6 +43,7 @@ class GetReviewDetailsQueryHandler
 			review?.Address,
 			review.Liked,
 			review?.Unliked,
+			review?.Comment,
 			review.Grade
 			);
 
