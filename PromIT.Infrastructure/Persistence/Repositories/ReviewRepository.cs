@@ -16,4 +16,11 @@ public class ReviewRepository : GenericRepository<ReviewEntity>, IReviewReposito
 			.Include(review => review.Reviewer)
 			.FirstOrDefaultAsync(review => review.Id == id);
 	}
+
+	public async Task<List<ReviewEntity>?> GetAllReviewsWithReviewers()
+	{
+		return await _context.Reviews
+			.Include(review => review.Reviewer)
+			.ToListAsync();
+	}
 }

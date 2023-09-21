@@ -3,6 +3,7 @@ using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PromIT.App.Review.Commands.CreateReview;
+using PromIT.App.Review.Queries.GetAllReviews;
 using PromIT.App.Review.Queries.GetReviewDetails;
 using PromIT.Contracts.Review;
 
@@ -58,5 +59,17 @@ public class ReviewController : ApiController
 			reviewResult => Ok(result.Value),
 			errors => Problem("Ошибка")
 			);
+	}
+
+	[HttpGet("allReviews")]
+	public async Task<IActionResult> GetAllOrdersByCourierId()
+	{
+		var query = new GetAllReviewsQuery();
+
+		var reviewResult = await _mediator.Send(query);
+		return reviewResult.Match(
+			reviews => Ok(_mapper.Map<GetAllReviewsResponse>(reviews)),
+			errors => Problem("Ошибка")
+		);
 	}
 }
