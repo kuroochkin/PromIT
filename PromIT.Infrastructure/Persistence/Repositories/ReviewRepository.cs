@@ -21,6 +21,7 @@ public class ReviewRepository : GenericRepository<ReviewEntity>, IReviewReposito
 	{
 		return await _context.Reviews
 			.Include(review => review.Reviewer)
+			.OrderByDescending(review => review.Date)
 			.ToListAsync();
 	}
 }
